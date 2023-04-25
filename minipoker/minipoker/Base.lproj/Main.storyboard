@@ -123,6 +123,9 @@
                                                         <integer key="value" value="25"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="jugarButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="feF-00-9Ox"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QSq-E3-vfV">
                                                 <rect key="frame" x="0.0" y="70" width="370" height="50"/>
@@ -135,6 +138,9 @@
                                                         <integer key="value" value="25"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="apostarButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="v9A-jA-IZQ"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -160,21 +166,152 @@
                             <constraint firstItem="6mi-Gn-FaV" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="y7X-Wg-hrA"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cantidadApuestaLabel" destination="hGi-Ii-Qq6" id="piI-gf-c4b"/>
+                        <outlet property="carta1" destination="pqV-TF-2Ab" id="n6n-te-gd3"/>
+                        <outlet property="carta2" destination="AGL-QG-g0v" id="M3W-8s-Bzd"/>
+                        <outlet property="carta3" destination="ABT-7n-eDm" id="s2E-fX-Fe2"/>
+                        <outlet property="carta4" destination="6go-Wj-Jhh" id="Kwp-aH-e3X"/>
+                        <outlet property="carta5" destination="uxM-yh-3uP" id="WUf-5p-ta6"/>
+                        <segue destination="XB6-ln-G6r" kind="show" identifier="apostar" id="FyL-gQ-igQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="105.80357142857143"/>
         </scene>
+        <!--Apuesta View Controller-->
+        <scene sceneID="5Ed-Uu-ZkA">
+            <objects>
+                <viewController id="XB6-ln-G6r" customClass="ApuestaViewController" customModule="minipoker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2xP-Gk-MEf">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mesa-poker-verde" translatesAutoresizingMaskIntoConstraints="NO" id="VBu-eD-RBL">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="56" translatesAutoresizingMaskIntoConstraints="NO" id="ETT-iq-emL" userLabel="Stack View Principal">
+                                <rect key="frame" x="50" y="144" width="290" height="646"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="cKh-TN-1hz" userLabel="Stack View Label">
+                                        <rect key="frame" x="0.0" y="0.0" width="290" height="34.333333333333336"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apuesta: $" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1BF-TZ-DEC">
+                                                <rect key="frame" x="0.0" y="0.0" width="145" height="34.333333333333336"/>
+                                                <fontDescription key="fontDescription" name="GeezaPro-Bold" family="Geeza Pro" pointSize="28"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2999.99" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pZZ-C3-fQC">
+                                                <rect key="frame" x="145" y="0.0" width="145" height="34.333333333333336"/>
+                                                <fontDescription key="fontDescription" name="GeezaPro-Bold" family="Geeza Pro" pointSize="28"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="j8W-nK-nTj" userLabel="Stack View Botones">
+                                        <rect key="frame" x="0.0" y="90.333333333333343" width="290" height="190.00000000000003"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="¿Cuánto quieres apostar?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ciO-ZY-7Jz">
+                                                <rect key="frame" x="0.0" y="0.0" width="290" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="NVN-PA-MyZ"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UbS-kl-0sL">
+                                                <rect key="frame" x="0.0" y="69.999999999999972" width="290" height="50"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="eUj-Vu-sP8"/>
+                                                </constraints>
+                                                <color key="tintColor" systemColor="labelColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="JUGAR"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <integer key="value" value="12"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="jugarButton:" destination="XB6-ln-G6r" eventType="touchUpInside" id="RRF-mQ-RkJ"/>
+                                                    <segue destination="jjt-Jx-Qdd" kind="unwind" unwindAction="recibirApuestaDeSegundaPantallaWithSegue:" id="TqO-cP-vj7"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UNX-0o-Zmi">
+                                                <rect key="frame" x="0.0" y="139.99999999999997" width="290" height="50"/>
+                                                <color key="backgroundColor" red="0.57397161992554813" green="0.18713107320730038" blue="0.1448945808496121" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="lmW-wa-ku8"/>
+                                                </constraints>
+                                                <color key="tintColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="APOSTAR"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <integer key="value" value="12"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="confirmarApuestaButton:" destination="XB6-ln-G6r" eventType="touchUpInside" id="P69-vS-s9Q"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nJt-Nm-PBz">
+                                        <rect key="frame" x="0.0" y="336.33333333333326" width="290" height="309.66666666666674"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="nJt-Nm-PBz" secondAttribute="trailing" id="7Fr-io-uXc"/>
+                                    <constraint firstItem="nJt-Nm-PBz" firstAttribute="leading" secondItem="ETT-iq-emL" secondAttribute="leading" id="IJv-9C-Xq2"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ZdU-HV-bmy"/>
+                        <color key="backgroundColor" systemColor="systemBrownColor"/>
+                        <constraints>
+                            <constraint firstItem="ZdU-HV-bmy" firstAttribute="bottom" secondItem="ETT-iq-emL" secondAttribute="bottom" id="7JF-6y-oa4"/>
+                            <constraint firstItem="VBu-eD-RBL" firstAttribute="leading" secondItem="2xP-Gk-MEf" secondAttribute="leading" id="BKK-wD-VYP"/>
+                            <constraint firstItem="VBu-eD-RBL" firstAttribute="top" secondItem="2xP-Gk-MEf" secondAttribute="top" id="Cfr-g4-Hci"/>
+                            <constraint firstAttribute="trailing" secondItem="VBu-eD-RBL" secondAttribute="trailing" id="Eic-Jg-qUx"/>
+                            <constraint firstItem="ETT-iq-emL" firstAttribute="top" secondItem="ZdU-HV-bmy" secondAttribute="top" constant="100" id="I9h-2V-n4v"/>
+                            <constraint firstAttribute="bottom" secondItem="VBu-eD-RBL" secondAttribute="bottom" id="Wd5-5V-RKw"/>
+                            <constraint firstItem="ZdU-HV-bmy" firstAttribute="trailing" secondItem="ETT-iq-emL" secondAttribute="trailing" constant="50" id="jes-ID-6qY"/>
+                            <constraint firstItem="ETT-iq-emL" firstAttribute="leading" secondItem="ZdU-HV-bmy" secondAttribute="leading" constant="50" id="xVW-x8-iBf"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="U21-pG-Cj9"/>
+                    <connections>
+                        <outlet property="cantidadApostar" destination="ciO-ZY-7Jz" id="q0O-Vz-rhf"/>
+                        <outlet property="cantidadApustaLabel" destination="pZZ-C3-fQC" id="OV9-wL-7x8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pSt-Hk-qbU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="jjt-Jx-Qdd" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="830.76923076923072" y="104.50236966824644"/>
+        </scene>
     </scenes>
     <resources>
         <image name="mesa" width="900" height="592"/>
+        <image name="mesa-poker-verde" width="600" height="450"/>
         <image name="reverso-1" width="370" height="582"/>
         <image name="vegas" width="640" height="360"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
+        <systemColor name="secondarySystemGroupedBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBrownColor">
+            <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
